@@ -1,2 +1,2 @@
 # Rogue-Tinoite
-Tinoite but its rogue
+Tinoite but it's gone rogue
