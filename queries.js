@@ -49,14 +49,19 @@ pool.query('INSERT INTO tnt_genders (gender, sta_active) VALUES ($1, $2)', [gend
 const createUser = (req, res) => {
 //In production, the password will be saved in a encrypted form, of course, future integration with SSL and OAuth will be done. This is barely a scratch
 
-const password = CryptoJS.MD5(req.params.password).toString()
- const {name
-	    , email
-			, birth_date
-			, register_date
-			, sta_active
-			, sta_notifications
-			, gender_id} = req.body
+const password = CryptoJS.MD5(req.body.password).toString()
+
+let {  name
+		 , email
+		 , birth_date
+		 , register_date
+		 , sta_active
+		 , sta_notifications
+		 , gender_id} = req.body
+
+
+
+
  pool.query('INSERT INTO tnt_users (name, email, birth_date, register_date, password, sta_active, sta_notifications, gender_id) VALUES ($1, $2, $3, now(), $4, $5, $6, $7)',
            [name
 					, email
@@ -64,12 +69,12 @@ const password = CryptoJS.MD5(req.params.password).toString()
 					, password
 					, sta_active
 					, sta_notifications
-					, gender_id], (error, results) => {
+					, gender_id], (error, result) => {
    if(error) {
     throw error
    }
 
-   res.status(200).send(`User added with ID: ${results.insertId}`)
+   res.status(200).send(`User added with ID: ${result.insertId}`)
  })
 
 }
