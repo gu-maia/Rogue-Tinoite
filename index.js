@@ -15,7 +15,7 @@ app.use(
 
 
 app.get('/', (req, res) => {
-  res.json({ info: 'Node.js, Express, and Postgres API' + CryptoJS.MD5("test").toString()})
+  res.json({ info: 'Node.js, Express, and Postgres API. This is the core service of Tinoite.'})
 })
 
 app.get('/users', db.getUsers)
