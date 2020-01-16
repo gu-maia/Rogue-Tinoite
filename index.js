@@ -3,7 +3,8 @@ const bodyParser = require('body-parser');
 const CryptoJS = require("crypto-js");
 const app        = express();
 const port       = 3000;
-const db         = require('./queries.js');
+const db         = require('./models/queries.js');
+const usr        = require('./models/users.js');
 
 app.use(bodyParser.json())
 app.use(
@@ -18,17 +19,17 @@ app.get('/', (req, res) => {
   res.json({ info: 'Node.js, Express, and Postgres API. This is the core service of Tinoite.'})
 })
 
-app.get('/users', db.getUsers)
+app.get('/users', usr.getUsers)
 
-app.get('/users/:id', db.getUserById)
+app.get('/users/:id', usr.getUserById)
 
-app.post('/users', db.createUser);
+app.post('/users', usr.createUser);
 
 app.post('/gender', db.createGender);
 
-app.put('/users/:id', db.updateUser)
+app.put('/users/:id', usr.updateUser)
 
-app.delete('/users/:id', db.deleteUser)
+app.delete('/users/:id', usr.deleteUser)
 
 app.listen(port, () => {
   console.log(`App running on port ${port}.`)
