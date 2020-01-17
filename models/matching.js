@@ -14,7 +14,15 @@ const {matcherId
       ,likeType} = req.body
 
 if(likeType === 'R') //Regular
-pool.query('INSERT INTO tnt_users_x_matches (user_id_matcher, user_id_matched, sta_like, sta_super_like)  VALUES ($1, $2, \'Y\', \'N\')', [matcherId, matchedId], (error, results) => {
+pool.query(`INSERT INTO tnt_users_x_matches
+                        (user_id_matcher
+                        ,user_id_matched
+                        ,sta_like
+                        ,sta_super_like)
+                 VALUES ($1
+                        ,$2
+                        , \'Y\'
+                        , \'N\')`, [matcherId, matchedId], (error, results) => {
  if(error)
  throw error
  else

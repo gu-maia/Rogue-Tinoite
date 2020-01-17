@@ -4,7 +4,7 @@
   "description": "Tinoite but it's gone rogue",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/server.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,10 @@
   "dependencies": {
     "crypto-js": "^3.1.9-1",
     "express": "^4.17.1",
-    "pg": "^7.17.1"
+    "nodemon": "^2.0.2",
+    "pg": "^7.17.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.3"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
@@ -28,6 +31,7 @@
     "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint-plugin-standard": "^4.0.1",
+    "sequelize-cli": "^5.5.1"
   }
 }
