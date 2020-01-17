@@ -35,13 +35,15 @@ const createUser = (req, res) => {
   const password = CryptoJS.MD5(req.body.password).toString()
 
   const {
-    name
+      name
     , email
     , birthDate
     , staActive
     , staNotifications
     , genderId
   } = req.body
+
+
 
   pool.query('INSERT INTO tnt_users (name, email, birth_date, register_date, password, sta_active, sta_notifications, gender_id) VALUES ($1, $2, $3, now(), $4, $5, $6, $7)',
     [name,
@@ -50,12 +52,12 @@ const createUser = (req, res) => {
       password,
       staActive,
       staNotifications,
-      genderId], (error, result) => {
+      genderId], (error, results) => {
       if (error) {
         throw error
       }
 
-      res.status(200).send(`User added with ID: ${result.insertId}`)
+      res.status(200).send(`User added with ID: ${results.insertId}`)
     })
 }
 

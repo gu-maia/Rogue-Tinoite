@@ -4,6 +4,7 @@ const app = express()
 const port = 3000
 const db = require('./models/queries.js')
 const usr = require('./models/users.js')
+const matching = require('./models/matching.js')
 
 app.use(bodyParser.json())
 app.use(
@@ -22,6 +23,10 @@ app.get('/users', usr.getUsers)
 app.get('/users/:id', usr.getUserById)
 
 app.post('/users', usr.createUser)
+
+app.post('/like', matching.likeUser)
+
+app.get('/likesOf/:id', matching.getMatchesOf)
 
 app.post('/gender', db.createGender)
 
