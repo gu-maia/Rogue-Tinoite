@@ -9,7 +9,13 @@ module.exports = {
           primaryKey: true,
           autoIncrement: true,
           allowNull: false,
-
+          references: {
+            model: {
+              tableName: 'genders',
+              schema: 'public',
+            },
+            key: 'id',
+          }
         },
         name: {
           type: Sequelize.STRING,
