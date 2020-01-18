@@ -8,7 +8,7 @@ routes.get('/index', UserController.index)
 routes.post('/users', UserController.store)
 
 routes.get('/likes', LikeController.index)
-routes.post('/likes', LikeController.store)
+routes.post('/likes', LikeController.likeUser)
 
 routes.get('/users/matches/:id', LikeController.getmatchesof)
 
