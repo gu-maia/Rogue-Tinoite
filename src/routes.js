@@ -1,5 +1,5 @@
-const express = require('express');
-const UserController = require('./controllers/UserController');
+const express = require('express')
+const UserController = require('./controllers/UserController')
 const LikeController = require('./controllers/LikesController')
 
 const routes = express.Router()
@@ -12,4 +12,4 @@ routes.post('/likes', LikeController.likeUser)
 
 routes.get('/users/matches/:id', LikeController.getmatchesof)
 
-module.exports = routes;
+module.exports = routes

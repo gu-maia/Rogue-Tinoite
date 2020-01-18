@@ -6,7 +6,7 @@ module.exports = {
   database: 'tnt_main',
   define: {
     timestamps: true,
-    underscored: true,
+    underscored: true
   },
-    logging: false
-};
+  logging: false
+}
