@@ -35,7 +35,6 @@ module.exports = {
 
   async getmatchesof (req, res) {
     const id = req.params.id
-    // Gets all users that liked back
     const usersThatLikedBack = await Like.findAll({
       where: {
         matched_id: id,
@@ -45,14 +44,14 @@ module.exports = {
     })
 
     // Need to transform into vector to pass as argument in next query
-    let usersThatLikedBackObj = JSON.stringify(usersThatLikedBack)
-    usersThatLikedBackObj = JSON.parse(usersThatLikedBackObj)
-    usersThatLikedBackObj = usersThatLikedBackObj.map(i => i.matcher_id)
+    let usersThatLikedBackVectorized = JSON.stringify(usersThatLikedBack)
+    usersThatLikedBackVectorized = JSON.parse(usersThatLikedBackVectorized)
+    usersThatLikedBackVectorized = usersThatLikedBackVectorized.map(i => i.matcher_id)
 
     const matches = await Like.findAll({
       where: {
         matcher_id: id,
-        matched_id: usersThatLikedBackObj
+        matched_id: usersThatLikedBackVectorized
       }
     })
 
