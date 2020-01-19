@@ -8,14 +8,21 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
         allowNull: false
-        // reference
       },
-      course_name: {
+      name: {
         type: Sequelize.STRING,
         allowNull: false
       },
       sta_active: {
         type: Sequelize.STRING,
+        allowNull: false
+      },
+      created_at: {
+        type: Sequelize.DATE,
+        allowNull: false
+      },
+      updated_at: {
+        type: Sequelize.DATE,
         allowNull: false
       }
     }

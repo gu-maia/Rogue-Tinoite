@@ -9,7 +9,7 @@ module.exports = {
         autoIncrement: true,
         allowNull: false
       },
-      badge_name: {
+      name: {
         type: Sequelize.STRING,
         allowNull: false
       },
