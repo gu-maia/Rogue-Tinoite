@@ -5,7 +5,7 @@ Tinoite but it's gone rogue
 
 #### First, install the dependencies:
 ```bash
-npm i express nodemon pg pg-hstore sequelize sequelize-cli
+npm install
 ```
 
 
