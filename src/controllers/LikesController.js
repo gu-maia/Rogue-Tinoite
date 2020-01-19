@@ -13,15 +13,16 @@ module.exports = {
     const isMatched = await Like.findAll({
       where: {
         matcher_id: matched_id,
-        matched_id: matcher_id
+        matched_id: matcher_id,
+        sta_like: ['R', 'S']
       }
     })
 
     const like = await Like.create({ matcher_id, matched_id, sta_like })
+    const likeType = (sta_like === 'S' || sta_like === 'R') ? 'Liked' : 'Disliked'
+    console.log(`${matcher.name} (${matcher.id}) ${likeType} ${matched.name} (${matched.id}).`)
 
-    console.log(`${matcher.name} (${matcher.id}) Liked ${matched.name} (${matched.id}).`)
-
-    if (isMatched.length) {
+    if (isMatched.length && (sta_like === 'R' || sta_like === 'S')) {
       console.log('It\'s a match!')
     }
 

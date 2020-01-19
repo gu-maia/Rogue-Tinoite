@@ -8,7 +8,7 @@ module.exports = {
     return res.json(users)
   },
 
-  async findUser (req, res) {
+  async findById (req, res) {
     const id = req.params.id
     const user = await User.findByPk(id)
     return res.json(user)
