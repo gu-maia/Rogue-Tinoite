@@ -5,7 +5,7 @@ Tinoite but it's gone rogue
 
 #### First, install the dependencies:
 ```bash
-$~ npm install
+~$ npm install
 ```
 
 
