@@ -19,7 +19,7 @@
   "homepage": "https://github.com/sazukegu/Rogue-Tinoite#readme",
   "dependencies": {
     "crypto-js": "^3.1.9-1",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "nodemon": "^2.0.2",
     "pg": "^7.17.1",
     "pg-hstore": "^2.3.3",
